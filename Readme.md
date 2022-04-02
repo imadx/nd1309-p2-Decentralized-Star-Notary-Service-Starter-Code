@@ -10,13 +10,12 @@
 
 ## ERC-721 Token Name
 
-`Test Star Token`
+`Star Token`
 
 ## ERC-721 Token Symbol
 
-`test-star-token-001`
+`STRTKN1`
 
 ## “Token Address” on the Rinkeby Network
 
-https://rinkeby.etherscan.io/tx/0x92af0794ba85585fee1d086b96179a7e2683449ecbfa20724bb2fb36ca43abdf
-
+https://rinkeby.etherscan.io/token/0x2d3fc628e9e3925eb048330e492d2a3c1c323904

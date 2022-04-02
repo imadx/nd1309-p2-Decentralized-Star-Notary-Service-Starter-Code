@@ -8,12 +8,13 @@ contract StarNotary is ERC721 {
     // Star data
     struct Star {
         string name;
-        string symbol;
     }
 
     // Implement Task 1 Add a name and symbol properties
     // name: Is a short name to your token
     // symbol: Is a short string like 'USD' -> 'American Dollar'
+    string public constant name = "Star Token";
+    string public constant symbol = "STRTKN1";
 
     // mapping the Star with the Owner Address
     mapping(uint256 => Star) public tokenIdToStarInfo;
@@ -21,13 +22,9 @@ contract StarNotary is ERC721 {
     mapping(uint256 => uint256) public starsForSale;
 
     // Create Star using the Struct
-    function createStar(
-        string memory _name,
-        string memory _symbol,
-        uint256 _tokenId
-    ) public {
+    function createStar(string memory _name, uint256 _tokenId) public {
         // Passing the name and tokenId as a parameters
-        Star memory newStar = Star(_name, _symbol); // Star is an struct so we are creating a new Star
+        Star memory newStar = Star(_name); // Star is an struct so we are creating a new Star
         tokenIdToStarInfo[_tokenId] = newStar; // Creating in memory the Star -> tokenId mapping
         _mint(msg.sender, _tokenId); // _mint assign the the star with _tokenId to the sender address (ownership)
     }
@@ -57,9 +54,9 @@ contract StarNotary is ERC721 {
     }
 
     // Implement Task 1 lookUptokenIdToStarInfo
-    function lookUptokenIdToStarInfo(uint256 _tokenId) public view returns (string memory, string memory) {
+    function lookUptokenIdToStarInfo(uint256 _tokenId) public view returns (string memory) {
         //1. You should return the Star saved in tokenIdToStarInfo mapping
-        return (tokenIdToStarInfo[_tokenId].name, tokenIdToStarInfo[_tokenId].symbol);
+        return tokenIdToStarInfo[_tokenId].name;
     }
 
     // Implement Task 1 Exchange Stars function
